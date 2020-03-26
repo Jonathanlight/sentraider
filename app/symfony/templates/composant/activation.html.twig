@@ -1,0 +1,7 @@
+{% if app.user.active != 1 %}
+<div class="col-12">
+    <div class="alert alert-danger" role="alert">
+        <i class="fa fa-ban" style="color: white;font-size: 30px;"></i> &nbsp; Votre compte n'est pas confirmé, veillez valider le lien envoyé a votre adresse mail.
+    </div>
+</div>
+{% endif %}

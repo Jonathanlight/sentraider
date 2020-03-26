@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'page.register.description'|trans }} {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block navbar %}
+    <!-- Main navigation -->
+    {% include('composant/navbar.html.twig') %}
+{% endblock %}
+
+{% block body %}
+    <!-- Body -->
+<div class="container">
+    <section class="my-5">
+        <h2 class="h1-responsive font-weight-bold text-center my-5">{{ 'page.home.header.register_user'|trans }}</h2> <hr>
+        {% include 'composant/messageFlash.html.twig' %}
+        <div class="row">
+            <div class="col-md-6 mb-lg-0 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="md-form">
+                            {{ form_widget(form.genre) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            {{ form_widget(form.nom) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            {{ form_widget(form.prenom) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-phone prefix grey-text"></i>
+                            {{ form_widget(form.numero) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                            {{ form_widget(form.address) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'form.action.password' }}) }}
+                        </div>
+                        <div class="md-form">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'form.action.newPassword'}}) }}
+                        </div>
+                        <div class="md-form">
+                            {{ form_widget(form.recaptcha) }}
+                            {{ form_errors(form.recaptcha) }}
+                        </div>
+                        <div class="custom-control custom-checkbox text-center">
+                            {{ form_widget(form.hasValidatedCGU) }}
+                            {{ form_label(form.hasValidatedCGU) }}
+                        </div>
+                        <div class="text-center">
+                            {{ form_widget(form.submit) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="{{ asset('assets/front/img/home/block_left_min_2.jpg') }}" class="img-fluid" title="image" alt="smaple image">
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

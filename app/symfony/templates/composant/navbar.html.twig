@@ -1,0 +1,73 @@
+<!-- Main navigation -->
+<header style="height: unset;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('home') }}">
+                <img src="{{ asset('assets/front/img/logo-devsprof-v2.png') }}" class="main-logo" alt="main-logo" title="main-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto smooth-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('home') }}">Accueil<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Formation web" aria-label="Formation web" href="{{ path('formation') }}" data-offset="80">{{ 'page.home.header.formation'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="le blog devsprof" aria-label="blog devsprofs" href="https://blog.devsprof.fr/" data-offset="80">Notre Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="FAQ" aria-label="FAQ" href="{{ path('faq') }}" data-offset="80">{{ 'page.home.header.faq'|trans }}</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav nav-flex-icons">
+                    {% if app.user %}
+                        <!-- info user -->
+                        {% if is_granted(constant('\\App\\Security\\Voter\\UserVoter::USER_VIEW'), app.user) or is_granted(constant('\\App\\Security\\Voter\\TeacherVoter::TEACHER_VIEW'), app.user) %}
+                            <a href="{{ path('dashboard') }}" title="{{ 'menu.user.profil'|trans }}" aria-label="{{ 'menu.user.profil'|trans }}" aria-live="polite" class="nav-link border border-light rounded btn-dark-green  waves-light m-2 text-dark">
+                                <i class="fas fa-user mr-2"></i>{{ 'menu.user.profil'|trans }}
+                            </a>
+                        {% endif %}
+                        <a href="{{ path('user_logout') }}" class="nav-link border border-light rounded waves-effect waves-light m-2">
+                            <i class="fas fa-power-off mr-2"></i> {{ 'menu.logout'|trans }}
+                        </a>
+                    {% else %}
+                        <!-- Login / register -->
+                        <li class="">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a class="col-md-12 p-0" title="login" aria-label="login" href="{{ path('login') }}" data-offset="100">
+                                        <button type="button" class="btn btn-dark-green white-text btn-md btn-block">
+                                            {{ 'page.home.header.connexion'|trans }} <i class="fas fa-user"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="col-md-12 p-0" title="register" aria-label="register" href="{{ path('register') }}" data-offset="100">
+                                        <button type="button" class="btn btn-mdb-color white-text btn-md btn-block break-size-btn">
+                                            {{ 'page.home.header.sign_user'|trans }} <i class="fas fa-user"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="col-md-12 p-0" title="register_teacher" aria-label="register_teacher" href="{{ path('register_teacher') }}" data-offset="100">
+                                        <button type="button" class="btn btn-deep-orange white-text btn-md btn-block">
+                                            {{ 'page.home.header.sign_teacher'|trans }} <i class="fas fa-user"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+</header>
+<!-- Main navigation -->

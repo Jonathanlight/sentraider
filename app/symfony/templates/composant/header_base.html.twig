@@ -1,0 +1,48 @@
+<div id="home" class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url({{ asset('assets/front/img/home/block_left_min_2.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="mask rgba-black-slight">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="row smooth-scroll" style="background: rgba(0,0,0,0.9)">
+                <div class="col-md-12 white-text text-left">
+                    <div class="wow fadeInDown" data-wow-delay="0.2s">
+                        <h1 class="h1-responsive">
+                            <span class="h5-responsive font-weight-bold mb-2 mt-5 mt-xl-2">{{ 'page.home.title1'|trans }}</span> <br/>
+                            <span class="font-weight-bold mb-2 mt-5 mt-xl-2">{{ 'page.home.title2'|trans }}</span>
+                        </h1>
+                        <hr class="hr-dark">
+                    </div>
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="{{ form.language.vars.id }}" class="{{ form.language.vars.required ? 'required' }}">
+                                {{ form.language.vars.label|trans|raw }}
+                            </label>
+                            <div class="md-form form-lg">
+                                {{ form_widget(form.language) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.address.vars.id }}" class="{{ form.address.vars.required ? 'required' }}">
+                                {{ form.address.vars.label|trans|raw }}
+                            </label>
+                            <div class="md-form form-lg">
+                                {{ form_widget(form.address) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            {{ form_label(form.distance) }}
+                            <div class="d-flex justify-content-center" style="margin-top: 20px;">
+                                <span class="md-form range-field w-100">
+                                    {{ form_widget(form.distance) }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{ form_widget(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

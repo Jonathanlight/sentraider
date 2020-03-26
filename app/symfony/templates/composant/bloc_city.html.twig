@@ -1,0 +1,11 @@
+<hr class="my-5">
+<section>
+    <h1 class="my-5 h3-responsive text-center">{{ 'page.home.villes'|trans }}</h1>
+    <div class="row features-small mt-5">
+        {% for ville in villes %}
+        <a title="ville" aria-label="{{ ville.villeNom  }}" href="{{ path('ville', {'slug': ville.villeSlug}) }}" class="badge badge-warning peach-gradient m-2">
+            <span class="black-text">{{ ville.villeNom }} <i class="fas fa-globe ml-2"></i></span>
+        </a>
+        {% endfor %}
+    </div>
+</section>

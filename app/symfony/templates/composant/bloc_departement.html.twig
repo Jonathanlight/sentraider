@@ -1,0 +1,13 @@
+<hr class="my-5">
+<section>
+    <h1 class="my-5 h3-responsive text-center">{{ 'page.home.departements'|trans }}</h1>
+    <div class="row features-small mt-5 wow">
+        {% for departement in departements %}
+        <a title="departement" aria-label="{{ departement.departementNom }}" href="{{ path('departement', {'slug': departement.departementSlug}) }}">
+            <div class="chip peach-gradient lighten-4 black-text">
+                <img src="{{ asset('assets/front/img/favicon-devsprof-v2.png') }}" alt="departement" title="departement"> {{ departement.departementNom }}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
