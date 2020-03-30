@@ -126,4 +126,3 @@ $ curl -H "Authorization: Bearer [TOKEN]" http://localhost:8000/api
 ---
 
 - Jonathan Kablan (Developpeur BackEnd)
-- Khoueil Salah (Designer FrontEnd)
